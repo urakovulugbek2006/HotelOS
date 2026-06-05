@@ -76,7 +76,7 @@ export default function ManagerBookingsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-white">Bookings</h1>
+        <h1 className="font-display text-3xl text-white">Bookings</h1>
         <span className="text-slate-400 text-sm">{bookings.length} total</span>
       </div>
 

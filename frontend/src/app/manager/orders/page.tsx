@@ -39,7 +39,7 @@ export default function ManagerOrdersPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-white">Live Orders</h1>
+        <h1 className="font-display text-3xl text-white">Live Orders</h1>
         <div className="text-right">
           <div className="flex items-center gap-2 text-xs text-emerald-400 mb-1">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />

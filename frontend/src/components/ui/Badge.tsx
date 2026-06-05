@@ -1,28 +1,44 @@
 interface Props {
   label: string;
   variant?: "green" | "yellow" | "red" | "blue" | "gray" | "orange" | "gold";
+  dot?: boolean;
 }
 
 const styles = {
-  green: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
-  yellow: "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
-  red: "bg-red-500/20 text-red-400 border border-red-500/30",
-  blue: "bg-blue-500/20 text-blue-400 border border-blue-500/30",
-  gray: "bg-slate-500/20 text-slate-400 border border-slate-500/30",
-  orange: "bg-orange-500/20 text-orange-400 border border-orange-500/30",
-  gold: "bg-yellow-600/20 text-yellow-300 border border-yellow-600/30",
+  green: "bg-emerald-500/12 text-emerald-300 ring-1 ring-inset ring-emerald-500/25",
+  yellow: "bg-amber-500/12 text-amber-300 ring-1 ring-inset ring-amber-500/25",
+  red: "bg-rose-500/12 text-rose-300 ring-1 ring-inset ring-rose-500/25",
+  blue: "bg-sky-500/12 text-sky-300 ring-1 ring-inset ring-sky-500/25",
+  gray: "bg-slate-500/12 text-slate-300 ring-1 ring-inset ring-slate-500/25",
+  orange: "bg-orange-500/12 text-orange-300 ring-1 ring-inset ring-orange-500/25",
+  gold: "bg-gold-500/12 text-gold-300 ring-1 ring-inset ring-gold-500/25",
 };
 
-export default function Badge({ label, variant = "gray" }: Props) {
+const dotColors = {
+  green: "bg-emerald-400",
+  yellow: "bg-amber-400",
+  red: "bg-rose-400",
+  blue: "bg-sky-400",
+  gray: "bg-slate-400",
+  orange: "bg-orange-400",
+  gold: "bg-gold-400",
+};
+
+export default function Badge({ label, variant = "gray", dot = true }: Props) {
   return (
-    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${styles[variant]}`}>
+    <span
+      className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium ${styles[variant]}`}
+    >
+      {dot && <span className={`w-1.5 h-1.5 rounded-full ${dotColors[variant]}`} />}
       {label}
     </span>
   );
 }
 
+type Variant = "green" | "yellow" | "red" | "blue" | "gray" | "orange" | "gold";
+
 export function roomStatusBadge(status: string) {
-  const map: Record<string, "green" | "yellow" | "red" | "blue" | "gray" | "orange" | "gold"> = {
+  const map: Record<string, Variant> = {
     Available: "green",
     Reserved: "gold",
     Cleaning: "yellow",
@@ -34,7 +50,7 @@ export function roomStatusBadge(status: string) {
 }
 
 export function bookingStatusBadge(status: string) {
-  const map: Record<string, "green" | "yellow" | "red" | "blue" | "gray" | "orange"> = {
+  const map: Record<string, Variant> = {
     PendingPayment: "yellow",
     Confirmed: "blue",
     Active: "green",
@@ -46,7 +62,7 @@ export function bookingStatusBadge(status: string) {
 }
 
 export function orderStatusBadge(status: string) {
-  const map: Record<string, "green" | "yellow" | "red" | "blue" | "gray" | "orange"> = {
+  const map: Record<string, Variant> = {
     Received: "yellow",
     Preparing: "orange",
     OutForDelivery: "blue",
@@ -56,7 +72,7 @@ export function orderStatusBadge(status: string) {
 }
 
 export function priorityBadge(priority: string) {
-  const map: Record<string, "green" | "yellow" | "red" | "blue" | "gray" | "orange"> = {
+  const map: Record<string, Variant> = {
     Low: "green",
     Normal: "blue",
     High: "orange",

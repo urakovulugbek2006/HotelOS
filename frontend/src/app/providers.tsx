@@ -18,12 +18,15 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         position="top-right"
         toastOptions={{
           style: {
-            background: "#1e293b",
-            color: "#f1f5f9",
-            border: "1px solid #334155",
+            background: "rgba(18,24,41,0.92)",
+            color: "#e2e8f0",
+            border: "1px solid rgba(255,255,255,0.08)",
+            backdropFilter: "blur(12px)",
+            borderRadius: "12px",
+            fontSize: "14px",
           },
-          success: { iconTheme: { primary: "#f59e0b", secondary: "#1e293b" } },
-          error:   { iconTheme: { primary: "#ef4444", secondary: "#1e293b" } },
+          success: { iconTheme: { primary: "#e7c879", secondary: "#0b1020" } },
+          error:   { iconTheme: { primary: "#fb7185", secondary: "#0b1020" } },
         }}
       />
     </SignalRProvider>

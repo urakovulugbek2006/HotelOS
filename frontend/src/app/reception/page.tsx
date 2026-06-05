@@ -41,9 +41,12 @@ export default function ReceptionOverviewPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-white">Reception Overview</h1>
-        <div className="flex items-center gap-2 text-xs text-emerald-400">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <h1 className="font-display text-3xl text-white">Reception Overview</h1>
+        <div className="inline-flex items-center gap-2 text-xs text-emerald-300 bg-emerald-500/10 ring-1 ring-inset ring-emerald-500/25 rounded-full px-3 py-1.5">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+          </span>
           Live updates
         </div>
       </div>
@@ -61,9 +64,9 @@ export default function ReceptionOverviewPage() {
         {rooms.length === 0 ? (
           <div className="text-center py-12 text-slate-400">No rooms found</div>
         ) : (
-          <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+          <div className="glass rounded-2xl overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-navy-900/50">
+              <thead className="bg-white/[0.03]">
                 <tr>
                   <th className="text-left px-4 py-3 text-slate-400 font-medium">Room</th>
                   <th className="text-left px-4 py-3 text-slate-400 font-medium">Style</th>
@@ -73,15 +76,15 @@ export default function ReceptionOverviewPage() {
                   <th className="text-left px-4 py-3 text-slate-400 font-medium">Price/night</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-navy-700">
+              <tbody className="divide-y divide-white/[0.06]">
                 {rooms.map((room) => (
-                  <tr key={room.id} className="hover:bg-navy-700/30 transition-colors">
+                  <tr key={room.id} className="hover:bg-white/[0.03] transition-colors">
                     <td className="px-4 py-3 text-white font-medium">{room.roomNumber}</td>
                     <td className="px-4 py-3 text-slate-300">{room.style}</td>
                     <td className="px-4 py-3 text-slate-300">{room.floor}</td>
                     <td className="px-4 py-3 text-slate-300">{room.capacity}</td>
                     <td className="px-4 py-3">{roomStatusBadge(room.status)}</td>
-                    <td className="px-4 py-3 text-gold-400">${room.pricePerNight}</td>
+                    <td className="px-4 py-3 text-gold-300">${room.pricePerNight}</td>
                   </tr>
                 ))}
               </tbody>

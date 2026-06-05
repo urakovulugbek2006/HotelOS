@@ -142,7 +142,7 @@ export default function ManagerRoomsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-white">Room Management</h1>
+        <h1 className="font-display text-3xl text-white">Room Management</h1>
         <Button onClick={() => setCreateModal(true)}>+ Add Room</Button>
       </div>
 

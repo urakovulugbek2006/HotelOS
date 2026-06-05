@@ -3,8 +3,9 @@ import "./globals.css";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
-  title: "HotelOS",
-  description: "Hotel management system",
+  title: "GrandStay · HotelOS",
+  description:
+    "GrandStay Hotel — book refined rooms, order room service, and manage your stay in real time.",
 };
 
 export default function RootLayout({
@@ -14,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className="min-h-screen">
         <Providers>{children}</Providers>
       </body>
     </html>

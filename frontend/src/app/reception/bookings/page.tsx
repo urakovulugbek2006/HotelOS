@@ -129,7 +129,7 @@ export default function ReceptionBookingsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-white">Bookings</h1>
+        <h1 className="font-display text-3xl text-white">Bookings</h1>
         <div className="flex items-center gap-2 text-xs text-emerald-400">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           Live
