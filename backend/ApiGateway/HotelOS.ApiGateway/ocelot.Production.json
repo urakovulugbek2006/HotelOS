@@ -1,0 +1,115 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/auth/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "DownstreamPathTemplate": "/api/auth/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-identity.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/users/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "DownstreamPathTemplate": "/api/users/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-identity.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/rooms/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "DownstreamPathTemplate": "/api/rooms/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-reception.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/bookings/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "DownstreamPathTemplate": "/api/bookings/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-reception.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/reservations/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "DownstreamPathTemplate": "/api/reservations/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-reception.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/payments/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "DownstreamPathTemplate": "/api/payments/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-payment.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/orders/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "DownstreamPathTemplate": "/api/orders/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-roomservice.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/menu/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "DownstreamPathTemplate": "/api/menu/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-roomservice.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/cleaning/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "DownstreamPathTemplate": "/api/cleaning/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-housekeeping.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/tickets/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "DownstreamPathTemplate": "/api/tickets/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-maintenance.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/hotelHub/negotiate",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/hotelHub/negotiate",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-notification.azurewebsites.net", "Port": 443 }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/hotelHub/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/hotelHub/{everything}",
+      "DownstreamScheme": "wss",
+      "DownstreamHostAndPorts": [
+        { "Host": "hotelos-notification.azurewebsites.net", "Port": 443 }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://hotelos-gateway.azurewebsites.net"
+  }
+}

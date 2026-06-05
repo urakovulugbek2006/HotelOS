@@ -1,0 +1,70 @@
+# ── .NET build output ─────────────────────────────────────────
+**/bin/
+**/obj/
+**/out/
+
+# ── .NET user secrets & local config ─────────────────────────
+**/appsettings.Development.json
+**/appsettings.Local.json
+**/*.user
+
+# ── EF Core migrations snapshot (keep migrations, skip designer)
+# (leave this commented — we DO want migrations committed)
+# **/Migrations/
+
+# ── Logs ──────────────────────────────────────────────────────
+**/logs/
+*.log
+
+# ── .NET tools ────────────────────────────────────────────────
+.dotnet/
+.tool-manifest
+
+# ── NuGet ─────────────────────────────────────────────────────
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# ── Rider ─────────────────────────────────────────────────────
+.idea/
+*.sln.iml
+
+# ── Visual Studio ─────────────────────────────────────────────
+.vs/
+*.suo
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# ── VS Code ───────────────────────────────────────────────────
+.vscode/
+!.vscode/extensions.json
+
+# ── macOS ─────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# ── Frontend ──────────────────────────────────────────────────
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# ── Environment files — NEVER commit secrets ──────────────────
+.env
+.env.*
+!.env.example
+
+# ── Azure deployment scripts (contain live credentials) ───────
+azure-setup.sh
+upload-secrets.sh
+publish-profiles/

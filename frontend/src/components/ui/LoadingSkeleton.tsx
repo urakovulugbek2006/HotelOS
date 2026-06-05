@@ -1,0 +1,45 @@
+export function SkeletonRow({ cols = 4 }: { cols?: number }) {
+  return (
+    <tr className="animate-pulse">
+      {Array.from({ length: cols }).map((_, i) => (
+        <td key={i} className="px-4 py-3">
+          <div className="h-4 bg-navy-700 rounded" />
+        </td>
+      ))}
+    </tr>
+  );
+}
+
+export function SkeletonCard() {
+  return (
+    <div className="bg-navy-800 border border-navy-700 rounded-xl p-6 animate-pulse">
+      <div className="h-5 bg-navy-700 rounded w-2/3 mb-3" />
+      <div className="h-4 bg-navy-700 rounded w-1/2 mb-2" />
+      <div className="h-4 bg-navy-700 rounded w-3/4" />
+    </div>
+  );
+}
+
+export function SkeletonGrid({ count = 6 }: { count?: number }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {Array.from({ length: count }).map((_, i) => (
+        <SkeletonCard key={i} />
+      ))}
+    </div>
+  );
+}
+
+export function PageLoader() {
+  return (
+    <div className="flex items-center justify-center h-64">
+      <div className="flex flex-col items-center gap-3">
+        <svg className="animate-spin h-8 w-8 text-gold-500" viewBox="0 0 24 24" fill="none">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+        </svg>
+        <p className="text-slate-400 text-sm">Loading…</p>
+      </div>
+    </div>
+  );
+}
