@@ -52,7 +52,7 @@ export default function ManagerPaymentsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-white">Payments</h1>
+        <h1 className="font-display text-3xl text-white">Payments</h1>
         <div className="text-right">
           <p className="text-slate-400 text-sm">{pending} pending</p>
           <p className="text-gold-400 font-semibold">${total.toFixed(2)} collected</p>

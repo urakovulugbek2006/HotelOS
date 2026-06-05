@@ -2,24 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ───────────────────────────────────────────────────────────────────────────
+   Design tokens
+   The display/serif stack gives the brand a refined, hospitality feel without
+   requiring a network font fetch (works fully offline in the sandbox).
+─────────────────────────────────────────────────────────────────────────── */
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, Cambria,
+    "Times New Roman", serif;
+  --ink-radial: radial-gradient(
+    120% 120% at 50% 0%,
+    #121829 0%,
+    #0b1020 55%,
+    #070b16 100%
+  );
+}
+
 @layer base {
   html {
     color-scheme: dark;
+    scroll-behavior: smooth;
   }
   body {
-    @apply bg-navy-900 text-slate-100;
+    @apply bg-navy-950 text-slate-200 antialiased;
+    font-family: var(--font-sans);
+    background-image: var(--ink-radial, none);
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  /* Form controls — softer, rounder, with a gold focus ring */
   input,
   select,
   textarea {
-    @apply bg-navy-800 border border-navy-600 text-white rounded-md px-3 py-2 w-full
-           placeholder-slate-500
-           focus:outline-none focus:ring-1 focus:ring-gold-500/50 focus:border-gold-500
-           transition-colors text-sm;
+    @apply bg-navy-800/70 border border-navy-600/70 text-white rounded-lg px-3.5 py-2.5 w-full
+           placeholder-slate-500 text-sm
+           focus:outline-none focus:ring-2 focus:ring-gold-500/30 focus:border-gold-500/70
+           transition-all duration-200;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-slate-500;
   }
   label {
-    @apply block text-xs text-slate-400 mb-1.5 font-medium tracking-wide uppercase;
+    @apply block text-[11px] text-slate-400 mb-1.5 font-semibold tracking-[0.12em] uppercase;
+  }
+
+  ::selection {
+    @apply bg-gold-500/30 text-white;
+  }
+
+  /* Refined scrollbars */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2a3450 transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: #2a3450;
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #3b4768;
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  /* Glass surface — used for cards, panels, navbars */
+  .glass {
+    @apply bg-navy-800/60 border border-white/[0.06] backdrop-blur-xl;
+  }
+  .glass-strong {
+    @apply bg-navy-800/85 border border-white/[0.08] backdrop-blur-2xl;
+  }
+
+  /* Champagne gradient text for headings & figures */
+  .text-gradient-gold {
+    @apply bg-gold-sheen bg-clip-text text-transparent;
+  }
+
+  /* Hairline section divider */
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent;
+  }
+
+  /* Eyebrow / kicker label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-semibold uppercase
+           tracking-[0.3em] text-gold-400/80;
   }
 }
 
@@ -30,5 +107,24 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Subtle dotted grid overlay used on hero / auth panels */
+  .bg-dot-grid {
+    background-image: radial-gradient(
+      rgba(231, 200, 121, 0.12) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animate-delay-300 {
+    animation-delay: 0.3s;
   }
 }

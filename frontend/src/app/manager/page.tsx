@@ -31,7 +31,7 @@ export default function ManagerOverviewPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-white mb-2">Manager Dashboard</h1>
+      <h1 className="font-display text-3xl text-white mb-1">Manager Dashboard</h1>
       <p className="text-slate-400 text-sm mb-8">Hotel operations at a glance</p>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
@@ -43,7 +43,7 @@ export default function ManagerOverviewPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Room breakdown */}
-        <div className="bg-navy-800 border border-navy-700 rounded-xl p-5">
+        <div className="glass rounded-2xl p-6">
           <h2 className="font-semibold text-white mb-4">Room Status Breakdown</h2>
           {["Available", "Active", "Cleaning", "OOS", "Archived"].map((status) => {
             const count = rooms.filter((r) => r.status === status).length;
@@ -54,9 +54,9 @@ export default function ManagerOverviewPage() {
                   <span className="text-slate-300">{status}</span>
                   <span className="text-slate-400">{count} ({pct}%)</span>
                 </div>
-                <div className="h-1.5 bg-navy-700 rounded-full overflow-hidden">
+                <div className="h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gold-500 rounded-full transition-all"
+                    className="h-full bg-gold-sheen rounded-full transition-all"
                     style={{ width: `${pct}%` }}
                   />
                 </div>
@@ -66,12 +66,12 @@ export default function ManagerOverviewPage() {
         </div>
 
         {/* Active orders */}
-        <div className="bg-navy-800 border border-navy-700 rounded-xl p-5">
+        <div className="glass rounded-2xl p-6">
           <h2 className="font-semibold text-white mb-4">Kitchen Orders</h2>
           {["Received", "Preparing", "OutForDelivery", "Delivered"].map((status) => {
             const count = orders.filter((o) => o.status === status).length;
             return (
-              <div key={status} className="flex justify-between items-center py-2 border-b border-navy-700 last:border-0">
+              <div key={status} className="flex justify-between items-center py-2.5 border-b border-white/[0.06] last:border-0">
                 <span className="text-slate-300 text-sm">{status}</span>
                 <span className="text-white font-semibold">{count}</span>
               </div>

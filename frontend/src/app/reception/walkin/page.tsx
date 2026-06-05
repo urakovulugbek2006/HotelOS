@@ -100,7 +100,7 @@ function WalkInForm() {
 
   return (
     <div className="max-w-xl">
-      <h1 className="text-2xl font-bold text-white mb-6">Walk-in Booking</h1>
+      <h1 className="font-display text-3xl text-white mb-6">Walk-in Booking</h1>
 
       <form onSubmit={handleSubmit} className="bg-navy-800 border border-navy-700 rounded-xl p-6 space-y-5">
         {/* Guest details */}
